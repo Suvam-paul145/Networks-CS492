@@ -22,6 +22,7 @@ vector<int> bitStuffing(vector<int> data) {
 }
 
 
+4
 vector<int> bitDestuffing(vector<int> data) {
     vector<int> destuffedData;
     int count = 0;
