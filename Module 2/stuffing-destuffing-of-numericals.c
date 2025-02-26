@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-// Function to perform bit stuffing
+// write a C programe to perform stuffing destuffing of numericals
 vector<int> bitStuffing(vector<int> data) {
     vector<int> stuffedData;
     int count = 0;
@@ -22,7 +22,7 @@ vector<int> bitStuffing(vector<int> data) {
     return stuffedData;
 }
 
-// Function to perform bit destuffing
+
 vector<int> bitDestuffing(vector<int> data) {
     vector<int> destuffedData;
     int count = 0;
