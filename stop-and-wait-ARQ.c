@@ -1,26 +1,28 @@
 #include <stdio.h>
 
 int main() {
-    int frames, i;
-    printf("Enter number of frames to send: ");
+    int frames, i, data, ack;
+    
+    printf("Enter number of frames: ");
     scanf("%d", &frames);
-
+    
     for (i = 0; i < frames; i++) {
-        printf("Sending frame %d...\n", i);
-        printf("Waiting for ACK...\n");
-
-        int ack;
-        printf("Enter 1 if ACK received, 0 if lost: ");
-        scanf("%d", &ack);
-
-        if (ack == 1) {
-            printf("ACK received for frame %d.\n\n", i);
-        } else {
-            printf("ACK lost. Resending frame %d...\n", i);
-            i--; // resend same frame
-        }
+        printf("\nEnter data for frame %d: ", i);
+        scanf("%d", &data);
+        
+        do {
+            printf("Sending frame %d (Data: %d)\n", i, data);
+            printf("ACK received? (1:Yes/0:No): ");
+            scanf("%d", &ack);
+            
+            if (ack) {
+                printf("Frame %d transmitted successfully\n", i);
+                break;
+            }
+            printf("Timeout! Resending frame %d\n", i);
+        } while (!ack);
     }
-
-    printf("All frames sent successfully using Stop-and-Wait ARQ.\n");
+    
+    printf("\nAll frames sent successfully!\n");
     return 0;
 }
